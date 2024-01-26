@@ -5,12 +5,12 @@ import {
   TJWTUserData,
 } from "./auth.interface"
 import jwt from "jsonwebtoken"
-import { IUser, type TAPIResponse } from "@repo/model"
 import PGClient from "../../modules/db/PGClient"
 import { UserSignInDTO, UserSignUpDTO } from "./auth.dto"
 import { authQueries } from "./auth.queries"
 import bcrypt from "bcrypt"
 import { sharedQueries } from "../shared.queries"
+import { IUser } from "../../model"
 
 const JWT_SECRET = "secret" as const
 

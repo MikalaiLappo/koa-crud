@@ -1,4 +1,4 @@
-import { TRole } from "@repo/model"
+import { TRole } from "../model"
 
 const sharedQueries = {
   insert: {

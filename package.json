@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
+  "author": "MikalaiLappo",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
@@ -30,7 +32,7 @@
     "db:prepare": "sh scripts/prepare-db.sh",
     "build": "tsc",
     "lint": "eslint .",
-    "start": "node ./dist/apps/api/src/server.js",
+    "start": "node ./dist/server.js",
     "dev": "yarn run build && yarn run start"
   }
 }

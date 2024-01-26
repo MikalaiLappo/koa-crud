@@ -1,6 +1,6 @@
-import { IUser, TRole } from "../../../../../packages/model"
 import { Length, IsEmail, IsJWT, IsEnum } from "class-validator"
 import { TUserCreationData } from "../shared.interface"
+import { TRole } from "../../model"
 
 export class UserSignUpDTO implements TUserCreationData {
   @Length(2, 80)

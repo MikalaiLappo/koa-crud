@@ -1,4 +1,3 @@
-import { IUser, TRole } from "@repo/model"
 import {
   IsEmail,
   IsEnum,
@@ -10,6 +9,7 @@ import {
 } from "class-validator"
 import { Transform } from "class-transformer"
 import { TUserCreationData } from "../shared.interface"
+import { IUser, TRole } from "../../model"
 
 export class UserIDParamDTO implements Pick<IUser, "id"> {
   @Transform((id) => parseInt(id.value), { toClassOnly: true })

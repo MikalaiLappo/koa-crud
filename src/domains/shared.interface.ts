@@ -1,4 +1,4 @@
-import { IUser } from "@repo/model"
+import { IUser } from "../model";
 
 export type TUserCreationData = Pick<
   IUser,

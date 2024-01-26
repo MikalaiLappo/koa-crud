@@ -1,9 +1,7 @@
-import { validate, ValidationError } from "class-validator"
+import { validate } from "class-validator"
 import {
   request,
   summary,
-  path,
-  body,
   responsesAll,
   tagsAll,
 } from "koa-swagger-decorator"
@@ -11,8 +9,6 @@ import UsersService from "./users.service"
 import { ApplicationContext } from "../../koa"
 import { plainToInstance } from "class-transformer"
 import { UserIDParamDTO, UpdateUserDataDTO, CreateUserDTO } from "./users.dto"
-import { TUsersResponse } from "./users.interface"
-import { IUser } from "@repo/model"
 
 @responsesAll({
   200: { description: "success" },

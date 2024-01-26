@@ -1,4 +1,4 @@
-import type { IUser, TAPIResponse } from "@repo/model"
+import { IUser, TAPIResponse } from "../../model"
 
 export type TJWTUserData = {
   userId: IUser["id"]
