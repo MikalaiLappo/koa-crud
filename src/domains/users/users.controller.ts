@@ -49,7 +49,7 @@ export default class UsersController {
     ctx.body = userQueryResult
     if (userQueryResult.status !== "OK") {
       ctx.status = userQueryResult.error === "not found" ? 404 : 500
-      ctx.body = { success: false, error: userQueryResult.error }
+      ctx.body = { status: "GENERIC_HTTP_ERROR", error: userQueryResult.error }
       return
     }
 
@@ -59,7 +59,7 @@ export default class UsersController {
   public static async updateUser(ctx: ApplicationContext) {
     if (!ctx.request.auth) {
       ctx.status = 401
-      ctx.body = { success: false, error: "unauthorized" }
+      ctx.body = { status: "GENERIC_HTTP_ERROR", error: "unauthorized" }
       return
     }
 
@@ -69,7 +69,7 @@ export default class UsersController {
     })
     if (userUpdateDataValidationErrors.length !== 0) {
       ctx.status = 400
-      ctx.body = { success: false, error: userUpdateDataValidationErrors }
+      ctx.body = { status: "GENERI_HTTP_ERROR", error: userUpdateDataValidationErrors }
       return
     }
     if (
@@ -79,7 +79,7 @@ export default class UsersController {
       !userUpdateData.username
     ) {
       ctx.status = 400
-      ctx.body = { success: false, error: "empty update data" }
+      ctx.body = { status: "GENERIC_HTTP_ERROR", error: "empty update data" }
       return
     }
     const params = plainToInstance(UserIDParamDTO, ctx.params)
@@ -88,7 +88,7 @@ export default class UsersController {
     })
     if (idValidationErrors.length !== 0) {
       ctx.status = 400
-      ctx.body = { success: false, error: "invalid user id" }
+      ctx.body = { status: "GENERIC_HTTP_ERROR", error: "invalid user id" }
       return
     }
 
@@ -97,7 +97,7 @@ export default class UsersController {
     if (!isOwnUpdate && !isAdmin) {
       ctx.status = 403
       ctx.body = {
-        success: false,
+        status: "GENERIC_HTTP_ERROR",
         error: "no rights to update someone's account",
       }
       return
@@ -130,7 +130,7 @@ export default class UsersController {
     })
     if (idValidationErrors.length !== 0) {
       ctx.status = 400
-      ctx.body = { success: false, error: "invalid user id" }
+      ctx.body = { status: "GENERIC_HTTP_ERROR", error: "invalid user id" }
       return
     }
 
@@ -178,7 +178,7 @@ export default class UsersController {
     })
     if (userCreateDataValidationErrors.length !== 0) {
       ctx.status = 400
-      ctx.body = { success: false, error: userCreateDataValidationErrors }
+      ctx.body = { status: "GENERIC_HTTP_ERROR", error: userCreateDataValidationErrors }
       return
     }
 
